@@ -1,25 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<EditText xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
     
+    <TextView
+        android:id="@+id/QuestionTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="17dp"
+        android:text="Title"/>
+    
+    <EditText
+        android:id="@+id/titleField"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"/>
+    
+    <TextView
+        android:id="@+id/Question"
+        android:layout_width="fill_parent"
+        android:layout_height="17dp"
+        android:text="Question"/>
+    
+    <EditText
+        android:id="@+id/entryField"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"/>
+    
+    <TextView
+        android:id="@+id/possibleResponses"
+        android:layout_width="fill_parent"
+        android:layout_height="17dp"
+        android:text="Possible Responses"/>
+
     <Button
         android:id="@+id/addAnsBtn"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:text="Add A Possible Answer" />
-    
+
     <Button
         android:id="@+id/saveBtn"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:text="Save Question" />
-    
+
     <Button
         android:id="@+id/helpBtn"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
         android:text="Help" />
-    
 
-</EditText>
+</LinearLayout>

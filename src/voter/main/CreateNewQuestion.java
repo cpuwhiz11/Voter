@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class CreateNewQuestion extends Activity implements OnClickListener {
 
@@ -13,13 +14,17 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 	private Button addAnsBtn;
 	private Button saveBtn; 
 	private Button helpBtn; 
+	
+	private EditText entryField; 
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.createnewquestion);
 
+		entryField = (EditText) findViewById(R.id.entryField);
+		
 		addAnsBtn = (Button) findViewById(R.id.addAnsBtn);
 		addAnsBtn.setOnClickListener(this);
 

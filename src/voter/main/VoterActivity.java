@@ -48,20 +48,20 @@ public class VoterActivity extends Activity implements OnClickListener {
             
         // Send a question to a friend
         case R.id.sendQuestionBtn:
-        	//Intent sendQuestion = new Intent(this, SendQuestion.class);
-        	//startActivity(sendQuestion);
+        	Intent sendQuestion = new Intent(this, SendQuestion.class);
+        	startActivity(sendQuestion);
         	break;
             
         // Answer a received question
         case R.id.ansQuestionBtn:
-        	//Intent answerQuestion = new Intent(this, AnswerQuestion.class);
-        	//startActivity(answerQuestion);
+        	Intent answerQuestion = new Intent(this, AnswerQuestion.class);
+        	startActivity(answerQuestion);
         	break;
     	
         // Get some help
         case R.id.helpBtn:
-        	//Intent help = new Intent(this, Help.class);
-        	//startActivity(help);
+        	Intent help = new Intent(this, Help.class);
+        	startActivity(help);
         	break;
         	
         default:
