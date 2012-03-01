@@ -7,6 +7,29 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
-
+        android:text="Voter App" />
+    
+    <Button
+        android:id="@+id/newQuestionBtn"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="Create A New Question" />
+    
+    <Button
+        android:id="@+id/sendQuestionBtn"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="Send A Question To Your Friends" />
+    
+    <Button
+        android:id="@+id/ansQuestionBtn"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="Answer A Question" />
+    
+    <Button
+        android:id="@+id/helpBtn"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="Help" />
 </LinearLayout>
