@@ -4,5 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+    
+  <TextView
+        android:id="@+id/help info"
+        android:layout_width="fill_parent"
+        android:layout_height="17dp"
+        android:text="LOTS OF HELP HERE" />
+    
 
 </LinearLayout>

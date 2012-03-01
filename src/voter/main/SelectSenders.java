@@ -6,41 +6,37 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.Toast;
 
-public class AnswerQuestion extends Activity implements OnClickListener {
-
-	private static final String TAG = "AnswerQuestion";
+public class SelectSenders extends Activity implements OnClickListener {
 	
-	/** Called when the activity is first created. */
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	private static final String TAG = "SelectSenders";
+
+	private Button send; 
+	
+	public void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.answerquestion);
+		setContentView(R.layout.selectsenders);
 		
-		//Display all received questions in a list
-		//User will scroll through list selecting answers 
+		// Populate a list of users 
 		
+		send = (Button) findViewById(R.id.send);
+		send.setOnClickListener(this);
+	
 	}
 	
-	/** Handle clicks */
 	public void onClick(View v) {
 		switch (v.getId()) {
 
-		// Get some help
-		case R.id.helpBtn:
-			Intent help = new Intent(this, Help.class);
-			startActivity(help);
-			break;
-
-	    // Get Send responses 
+		// Send to people
 		case R.id.send:
-			
-			//Send responses back to owners
+
+			//Send to selected people
 			
 			//Display msg that we sent questions
 			Toast ts = new Toast(this);
-			ts.setText("Responses(s) Sent!");
+			ts.setText("Question(s) Sent!");
 			ts.show();
 
 			//Return to main page
@@ -51,6 +47,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 		default:
 			Log.e(TAG, "onClick id not found");
 		}
+
 	}
 
 }

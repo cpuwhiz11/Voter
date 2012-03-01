@@ -22,6 +22,7 @@
         <activity android:name=".AnswerQuestion"> </activity>
         <activity android:name=".Help"> </activity>
         <activity android:name=".SendQuestion"> </activity>
+        <activity android:name=".SelectSenders"> </activity>
     </application>
 
 </manifest>

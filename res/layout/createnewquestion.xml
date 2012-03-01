@@ -31,7 +31,12 @@
         android:layout_width="fill_parent"
         android:layout_height="17dp"
         android:text="Possible Responses"/>
-
+    
+    <ListView
+        android:id="@+id/listResponses"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
     <Button
         android:id="@+id/addAnsBtn"
         android:layout_width="214dp"

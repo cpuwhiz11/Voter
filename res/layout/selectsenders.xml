@@ -3,18 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <TextView
-        android:id="@+id/QuestionTitles"
+        android:id="@+id/userNames"
         android:layout_width="fill_parent"
         android:layout_height="17dp"
-        android:text="Select Questions To Send"/>
-    
+        android:text="Select Users" />
+
     <Button
-        android:id="@+id/selectSenders"
+        android:id="@+id/send"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
-        android:text="Select Senders" />
+        android:text="Send" />
     
-    
+    <Button
+        android:id="@+id/help"
+        android:layout_width="214dp"
+        android:layout_height="wrap_content"
+        android:text="help" />
+
 </LinearLayout>
