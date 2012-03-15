@@ -6,7 +6,7 @@
     
     
   <TextView
-        android:id="@+id/help info"
+        android:id="@+id/helpinfo"
         android:layout_width="fill_parent"
         android:layout_height="17dp"
         android:text="LOTS OF HELP HERE" />

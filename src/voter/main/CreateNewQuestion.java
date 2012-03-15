@@ -61,11 +61,8 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 
 	    // Add a possible answer
 		case R.id.addAnsBtn:
-			//Add new blank ans to list
-			 //listItems.add("STUFF" +clickCounter++);
-			 //listView.addFocusables(listItems, 1); 
-			//Display new blank editable ans on list
-			
+			Intent addAns = new Intent(this, AddAnswers.class);
+			startActivity(addAns);
 			break;
 
 	    // Save the question
