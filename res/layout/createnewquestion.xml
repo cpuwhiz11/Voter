@@ -25,6 +25,16 @@
         android:id="@+id/entryField"
         android:layout_width="fill_parent"
         android:layout_height="100dp"/>
+        <TextView
+        android:id="@+id/possibleAns"
+        android:layout_width="fill_parent"
+        android:layout_height="17dp"
+        android:text="Possible Response..."/>
+    
+    <EditText
+        android:id="@+id/possibleAnsField"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"/>
     
     <TextView
         android:id="@+id/possibleResponses"
@@ -35,7 +45,7 @@
     <ListView
         android:id="@+id/listResponses"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="123dp" />
     
     <Button
         android:id="@+id/addAnsBtn"

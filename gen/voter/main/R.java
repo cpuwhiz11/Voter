@@ -16,23 +16,25 @@ public final class R {
     public static final class id {
         public static final int Question=0x7f050006;
         public static final int QuestionTitle=0x7f050004;
-        public static final int QuestionTitles=0x7f050011;
-        public static final int addAnsBtn=0x7f050009;
+        public static final int QuestionTitles=0x7f050013;
+        public static final int addAnsBtn=0x7f05000b;
         public static final int addBtn=0x7f050001;
-        public static final int ansQuestionBtn=0x7f05000f;
+        public static final int ansQuestionBtn=0x7f050011;
         public static final int entryField=0x7f050000;
         public static final int help=0x7f050003;
-        public static final int helpBtn=0x7f05000b;
-        public static final int helpinfo=0x7f05000c;
-        public static final int listResponses=0x7f050008;
-        public static final int newQuestionBtn=0x7f05000d;
-        public static final int possibleResponses=0x7f050007;
-        public static final int saveBtn=0x7f05000a;
-        public static final int selectSenders=0x7f050012;
+        public static final int helpBtn=0x7f05000d;
+        public static final int helpinfo=0x7f05000e;
+        public static final int listResponses=0x7f05000a;
+        public static final int newQuestionBtn=0x7f05000f;
+        public static final int possibleAns=0x7f050007;
+        public static final int possibleAnsField=0x7f050008;
+        public static final int possibleResponses=0x7f050009;
+        public static final int saveBtn=0x7f05000c;
+        public static final int selectSenders=0x7f050014;
         public static final int send=0x7f050002;
-        public static final int sendQuestionBtn=0x7f05000e;
+        public static final int sendQuestionBtn=0x7f050010;
         public static final int titleField=0x7f050005;
-        public static final int userNames=0x7f050010;
+        public static final int userNames=0x7f050012;
     }
     public static final class layout {
         public static final int addanswers=0x7f030000;

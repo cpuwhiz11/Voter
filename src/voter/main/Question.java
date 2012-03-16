@@ -1,6 +1,6 @@
 package voter.main;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /* Question Class */
 
@@ -10,7 +10,7 @@ public class Question {
 	
 	private String content;
 	
-	private List<String> possibleResponses;
+	private ArrayList<String> possibleResponses;
 	
 	private String owner;
 	
@@ -32,12 +32,12 @@ public class Question {
 		this.content = content;
 	}
 	
-	public List<String> getPossibleResponses() {
+	public ArrayList<String> getPossibleResponses() {
 		return possibleResponses;
 	}
 	
-	public void addPossibleResponses(String possibleResponses) {
-		this.possibleResponses.add(possibleResponses); 
+	public void addPossibleResponses(ArrayList<String> possibleResponses) {
+		this.possibleResponses = possibleResponses; 
 	}
 
 	public String getOwner() {
