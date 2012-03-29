@@ -12,7 +12,7 @@ public class VoterActivity extends Activity implements OnClickListener {
 	
 	private static final String TAG = "VoterActivity";
 	private Button newQuestionBtn; 
-	private Button sendQuestionBtn; 
+	private Button viewQuestionStatsBtn; 
 	private Button ansQuestionBtn; 
 	private Button helpBtn; 
 	
@@ -25,11 +25,11 @@ public class VoterActivity extends Activity implements OnClickListener {
         newQuestionBtn = (Button) findViewById(R.id.newQuestionBtn);
         newQuestionBtn.setOnClickListener(this);
         
-        sendQuestionBtn = (Button) findViewById(R.id.sendQuestionBtn);
-        sendQuestionBtn.setOnClickListener(this);
-        
         ansQuestionBtn = (Button) findViewById(R.id.ansQuestionBtn);
         ansQuestionBtn.setOnClickListener(this);
+        
+        viewQuestionStatsBtn = (Button) findViewById(R.id.viewQuestionStatsBtn);
+        viewQuestionStatsBtn.setOnClickListener(this); 
         
         helpBtn = (Button) findViewById(R.id.helpBtn);
         helpBtn.setOnClickListener(this);
@@ -46,9 +46,9 @@ public class VoterActivity extends Activity implements OnClickListener {
             startActivity(createNewQuestion);
             break;
             
-        // Send a question to a friend
-        case R.id.sendQuestionBtn:
-        	Intent sendQuestion = new Intent(this, SendQuestion.class);
+        // View Question Stats
+        case R.id.viewQuestionStatsBtn:
+        	Intent sendQuestion = new Intent(this, viewQuestionStats.class);
         	startActivity(sendQuestion);
         	break;
             

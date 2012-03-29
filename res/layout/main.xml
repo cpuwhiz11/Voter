@@ -16,10 +16,10 @@
         android:text="Create A New Question" />
     
     <Button
-        android:id="@+id/sendQuestionBtn"
+        android:id="@+id/viewQuestionStatsBtn"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
-        android:text="Send A Question To Your Friends" />
+        android:text="View Question Stats" />
     
     <Button
         android:id="@+id/ansQuestionBtn"

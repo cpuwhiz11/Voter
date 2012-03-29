@@ -17,7 +17,7 @@ public class SelectSenders extends Activity implements OnClickListener {
 	
 	public void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.selectsenders);
+		//setContentView(R.layout.selectsenders);
 		
 		// Populate a list of users 
 		

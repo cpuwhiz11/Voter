@@ -5,21 +5,27 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/userNames"
+        android:id="@+id/QuestionId"
         android:layout_width="fill_parent"
         android:layout_height="17dp"
-        android:text="Select Users" />
-
+        android:text="Question Id"/>
+    
+    <EditText
+        android:id="@+id/questionNumField"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:numeric="integer"/>
+    
     <Button
-        android:id="@+id/send"
+        android:id="@+id/retrieveQuestionBtn"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
-        android:text="Send" />
+        android:text="Retrive a Question" />
     
     <Button
         android:id="@+id/help"
         android:layout_width="214dp"
         android:layout_height="wrap_content"
-        android:text="help" />
+        android:text="Help" />
 
 </LinearLayout>

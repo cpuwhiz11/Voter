@@ -1,12 +1,12 @@
 package voter.main;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +29,10 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 	private EditText titleField; 
 	private EditText ansField; 
 	private EditText entryField; 
+	
+	// field of the id, uneditable, int in that field
+	private EditText questionIdField; 
+	private int randomInt; 
 	
 	//View that contains the list of possible answers
 	private ListView ansList;  
@@ -72,6 +76,17 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 				android.R.layout.simple_list_item_1,
 				listItems);
 		ansList.setAdapter(adapter); 
+		
+		questionIdField = (EditText) findViewById(R.id.questionIdField);
+		questionIdField.setFocusable(false); 
+		
+		//Autogenerate id number 
+		//TODO will need to query site so that number does not already exist
+		//will return an array of existing ints, check to see that random int
+		//is not in the list
+		Random randomGenerator = new Random();
+		randomInt = randomGenerator.nextInt(10000); 
+		questionIdField.setText(String.valueOf(randomInt));
 
 
 	}
@@ -146,14 +161,13 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 			//Save possible responses
 			question.addPossibleResponses(listItems); 
 			
-			//Save owner data
-			//FIXME Possible if a user is using a sim card that this will return null
-			//also possible to get the wrong number as this number may persist across phone wipes
-			String mPhoneNumber = ((TelephonyManager) getSystemService(TELEPHONY_SERVICE)).getLine1Number();
-            question.setOwner(mPhoneNumber);
+			//Save questionId 
+			question.setQuestionId(randomInt);
+			
+			//Push packaged question to website
 			
 			//Display msg that we saved the question
-			Toast ts = Toast.makeText(this, "Question Saved", Toast.LENGTH_SHORT);
+			Toast ts = Toast.makeText(this, ("Question Online with ID:" + questionIdField.toString()), Toast.LENGTH_SHORT);
 			ts.show();
 			
 			break;

@@ -12,7 +12,7 @@ public class Question {
 	
 	private ArrayList<String> possibleResponses;
 	
-	private String owner;
+	private int questionId;
 	
 	private int selectedResponse = 0;
 	
@@ -40,12 +40,12 @@ public class Question {
 		this.possibleResponses = possibleResponses; 
 	}
 
-	public String getOwner() {
-		return owner;
+	public int getQuestionId() {
+		return questionId;
 	}
 
-	public void setOwner(String owner) {
-		this.owner = owner;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 
 	public int getSelectedResponse() {
