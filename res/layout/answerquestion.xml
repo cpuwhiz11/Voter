@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >  
-    <Button
-        android:id="@+id/send"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:text="Send" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
 
-    <Button
-        android:id="@+id/help"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:text="help" />
-    
-</LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="321dp"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/QuestionId"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:text="Question Id" 
+            android:numeric="integer"/>
+
+        <EditText
+            android:id="@+id/questionIdField"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/getQuestionBtn"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Retrieve a Question" />
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Send Response" />
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Help" />
+    </LinearLayout>
+
+</ScrollView>

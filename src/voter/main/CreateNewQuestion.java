@@ -1,8 +1,17 @@
 package voter.main;
 
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -165,6 +174,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 			question.setQuestionId(randomInt);
 			
 			//Push packaged question to website
+			saveDataOnline(question); 
 			
 			//Display msg that we saved the question
 			Toast ts = Toast.makeText(this, ("Question Online with ID:" + questionIdField.toString()), Toast.LENGTH_SHORT);
@@ -175,6 +185,37 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 		default:
 			Log.e(TAG, "onClick id not found");
 		}
+	}
+
+
+	private void saveDataOnline(Question question) {
+
+		try{
+			//Create new HTTPClient
+			HttpClient httpclient = new DefaultHttpClient();
+
+			//Website to push data to FIXME
+			HttpPost httppost = new HttpPost("http://127.0.0.1/SOMETHING");
+			
+			//Setup for sending
+			httppost.setEntity(new UrlEncodedFormEntity(question.convertToSend()));
+			
+			//Send data and get response
+			HttpResponse response = httpclient.execute(httppost);
+			HttpEntity entity = response.getEntity();
+			
+			InputStream is = entity.getContent();
+		} catch(Exception e){
+			Log.e(TAG, "Failed to connect!");
+		}
+		
+		//Convert response to string
+		try {
+			//Should get a success or error
+		} catch (Exception e) {
+			Log.e(TAG, "Could not convert result"); 
+		}
+		
 	}
 
 }

@@ -1,6 +1,10 @@
 package voter.main;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 /* Question Class */
 
@@ -54,6 +58,19 @@ public class Question {
 
 	public void setSelectedResponse(int selectedResponse) {
 		this.selectedResponse = selectedResponse;
+	}
+	
+	public List<NameValuePair> convertToSend(){
+		List<NameValuePair> dataList = new ArrayList<NameValuePair>(); 
+		
+		//Add things to this list
+		dataList.add(new BasicNameValuePair("Title", title)); 
+		dataList.add(new BasicNameValuePair("Content", content)); 
+		dataList.add(new BasicNameValuePair("Possible Responses", possibleResponses.toString())); 
+		dataList.add(new BasicNameValuePair("ID", String.valueOf(questionId))); 
+		
+		return dataList;
+		
 	}
 	
 }

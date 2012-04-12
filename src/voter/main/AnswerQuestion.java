@@ -18,8 +18,9 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.answerquestion);
 		
-		//Display all received questions in a list
-		//User will scroll through list selecting answers 
+		// User enters question id
+		
+		
 		
 	}
 	
