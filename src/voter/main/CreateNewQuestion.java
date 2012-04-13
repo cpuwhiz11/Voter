@@ -3,6 +3,8 @@ package voter.main;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import org.apache.http.HttpEntity;
@@ -23,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateNewQuestion extends Activity implements OnClickListener {
@@ -178,7 +181,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 			
 			//Display msg that we saved the question
 			Toast ts = Toast.makeText(this, ("Question Online with ID:" + questionIdField.toString()), Toast.LENGTH_SHORT);
-			ts.show();
+			//ts.show();
 			
 			break;
 
@@ -189,33 +192,23 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 
 
 	private void saveDataOnline(Question question) {
+		String url = "http://129.63.70.103/setQuestion.php";
 
-		try{
-			//Create new HTTPClient
-			HttpClient httpclient = new DefaultHttpClient();
+		//Package up for sending
+		Map<String, String> data = new HashMap<String, String>();
+		data.put("Title", question.getTitle());
+		data.put("Question", question.getContent());
+		data.put("Possible Responses", question.getPossibleResponses().toString());
+		data.put("ID", String.valueOf(question.getQuestionId()));
 
-			//Website to push data to FIXME
-			HttpPost httppost = new HttpPost("http://127.0.0.1/SOMETHING");
-			
-			//Setup for sending
-			httppost.setEntity(new UrlEncodedFormEntity(question.convertToSend()));
-			
-			//Send data and get response
-			HttpResponse response = httpclient.execute(httppost);
-			HttpEntity entity = response.getEntity();
-			
-			InputStream is = entity.getContent();
-		} catch(Exception e){
-			Log.e(TAG, "Failed to connect!");
-		}
-		
-		//Convert response to string
-		try {
-			//Should get a success or error
-		} catch (Exception e) {
-			Log.e(TAG, "Could not convert result"); 
-		}
-		
+		//Send data
+		JsonResult parser = new JsonConnection(url).post(data);
+
+		//Check result
+		String result = parser.valueForKey("ID");
+
+		Toast ts = Toast.makeText(this, result, Toast.LENGTH_SHORT);
+		ts.show();
 	}
 
 }
