@@ -90,16 +90,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 		ansList.setAdapter(adapter); 
 		
 		questionIdField = (EditText) findViewById(R.id.questionIdField);
-		questionIdField.setFocusable(false); 
-		
-		//Autogenerate id number 
-		//TODO will need to query site so that number does not already exist
-		//will return an array of existing ints, check to see that random int
-		//is not in the list
-		Random randomGenerator = new Random();
-		randomInt = randomGenerator.nextInt(10000); 
-		questionIdField.setText(String.valueOf(randomInt));
-
+		questionIdField.setFocusable(false); 		
 
 	}
 	
@@ -173,8 +164,9 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 			//Save possible responses
 			question.addPossibleResponses(listItems); 
 			
+			//TODO if there is a questionID here we will need to retrieve it from the db and update it
 			//Save questionId 
-			question.setQuestionId(randomInt);
+			//question.setQuestionId(randomInt);
 			
 			//Push packaged question to website
 			saveDataOnline(question); 
@@ -209,6 +201,9 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 
 		Toast ts = Toast.makeText(this, "Saved under question id:" + result, Toast.LENGTH_SHORT);
 		ts.show();
+		
+		//Store id in question field
+		questionIdField.setText(result);
 	}
 
 }

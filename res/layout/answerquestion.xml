@@ -15,13 +15,13 @@
             android:id="@+id/QuestionId"
             android:layout_width="fill_parent"
             android:layout_height="17dp"
-            android:text="Question Id" 
-            android:numeric="integer"/>
+            android:text="Question Id"/>      
 
         <EditText
             android:id="@+id/questionIdField"
             android:layout_width="fill_parent"
-            android:layout_height="50dp" />
+            android:layout_height="50dp" 
+            android:numeric="integer"/>
 
         <Button
             android:id="@+id/getQuestionBtn"

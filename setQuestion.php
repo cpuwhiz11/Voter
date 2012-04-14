@@ -6,7 +6,6 @@
 $title = $_POST["Title"];
 $question = $_POST["Question"];
 $possibleResponses = $_POST["PossibleResponses"];
-$id = $_POST["ID"];
   
 //Connect to the db
 mysql_connect("localhost","root","root") or die("Unable to connect"); 

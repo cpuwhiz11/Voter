@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fillViewport="true" >
 
-    <TextView
-        android:id="@+id/QuestionId"
-        android:layout_width="fill_parent"
-        android:layout_height="17dp"
-        android:text="Question Id"/>
-    
-    <EditText
-        android:id="@+id/questionNumField"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:numeric="integer"/>
-    
-    <Button
-        android:id="@+id/retrieveQuestionBtn"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:text="Retrive a Question" />
-    
-    <Button
-        android:id="@+id/help"
-        android:layout_width="214dp"
-        android:layout_height="wrap_content"
-        android:text="Help" />
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/QuestionId"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:text="Question Id" />
+
+        <EditText
+            android:id="@+id/questionNumField"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:numeric="integer" />
+
+        <Button
+            android:id="@+id/retrieveQuestionBtn"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Retrive a Question" />
+
+        <Button
+            android:id="@+id/help"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Help" />
+        
+    </LinearLayout>
+
+</ScrollView>
