@@ -198,7 +198,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 		Map<String, String> data = new HashMap<String, String>();
 		data.put("Title", question.getTitle());
 		data.put("Question", question.getContent());
-		data.put("Possible Responses", question.getPossibleResponses().toString());
+		data.put("PossibleResponses", question.getPossibleResponses().toString());
 		data.put("ID", String.valueOf(question.getQuestionId()));
 
 		//Send data
@@ -207,7 +207,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 		//Check result
 		String result = parser.valueForKey("ID");
 
-		Toast ts = Toast.makeText(this, result, Toast.LENGTH_SHORT);
+		Toast ts = Toast.makeText(this, "Saved under question id:" + result, Toast.LENGTH_SHORT);
 		ts.show();
 	}
 
