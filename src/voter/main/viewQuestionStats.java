@@ -55,10 +55,11 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 			String error = parser.valueForKey("ERROR");
 			
 			//Check for error
-			if(error.compareTo("NONE") == 0){
+			if(error.compareTo("NONE") != 0){
 				Toast ts = Toast.makeText(this, error, Toast.LENGTH_SHORT);
 				ts.show();
 			} else {
+				
 				//Parse results
 				String title = parser.valueForKey("Title");
 				String question = parser.valueForKey("Question");
@@ -72,13 +73,19 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 	        	questionBundle.putString("Question", question); 
 	        	questionBundle.putString("PossibleResponse", possibleResponses); 
 	        	questionBundle.putString("ID", id); 
+	        	//questionBundle.putString("FAIL", "ITS A FAIL");
 	        	
 	        	ViewingStats.putExtras(questionBundle); 
 	        	startActivity(ViewingStats);
+	        	
+				//DEBUG STUFF
+				//String title = parser.valueForKey("Title");
+				//Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
+				//ts.show();
+				
 	        	break;
 			}
 			
-			// show some stats
 			break;
 			
 	        // Get some help

@@ -1,12 +1,15 @@
 package voter.main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class ViewingStats extends Activity {
@@ -29,15 +32,21 @@ public class ViewingStats extends Activity {
 
 	public void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.viewquestionstats);
+		setContentView(R.layout.viewingstats);
 		
-		String title = (String) savedInstanceState.get("Title");
-		String question = (String) savedInstanceState.get("Question");
+		//Get the bundle
+		Bundle extras = getIntent().getExtras(); 
+		
+		String title = extras.getString("Title");
+		String question = extras.getString("Question");
+		
+		Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
+		ts.show();
 		
 		//This might be the worse thing I have ever done FIXME
-		ArrayList<String> possibleResponse = (ArrayList<String>) savedInstanceState.get("PossibleResponse");
+		List<String> possibleResponse = Arrays.asList(extras.getString("PossibleResponse"));
 
-		String id = (String) savedInstanceState.get("ID");
+		String id = extras.getString("ID");
 		
 		//Fill the fields up 
 		titleField = (EditText) findViewById(R.id.titleField);
@@ -55,12 +64,13 @@ public class ViewingStats extends Activity {
 		questionIdField.setFocusable(false); 	
 		
 		ansList = (ListView) findViewById(R.id.listResponses); 
-		
+		/*
 		//Setup List stuff
 		adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1,
 				possibleResponse);
 		ansList.setAdapter(adapter); 
+		*/ 
 		
 		
 		

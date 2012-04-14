@@ -30,22 +30,26 @@ $ans = mysql_query("SELECT * FROM responses WHERE questionid = '$id'");
 //Close our db connection
 mysql_close();
 
-//Get number of row
-$row = mysql_numrows($question);
+//Retrieve the row
+$row = mysql_fetch_array($question);
 
 //Store data into each var
-$title = mysql_result($question, 1,"Title");
-$questionContent = mysql_result($question, 1,"Question");
+$title = $row['Title'];
+$questionContent = $row['Question'];
+$possibleResponses = $row['Answers'];
 
 //Check to see if there are any responses 
 if(mysql_numrows($ans) == null){
   //if not
-  $possibleResponse = "NONE";
+  $answers = "NONE";
 } else {
-  $possibleResponse = mysql_result($question, 1,"Answers");
+  //THIS IS NOT RIGHT!
+  $row = mysql_fetch_array($ans);
+  $answers = $row['Answers'];
 }
 
 //Respond with question info
-$Array = array("ERROR" => "NONE", "Title" => $title, "Question" => $questionContent, "PossibleResponse" => $possibleResponses);  
+$Array = array("ERROR" => "NONE", "Title" => $title, "Question" => $questionContent, 
+               "PossibleResponse" => $possibleResponses, "Responses" => $answers);  
 echo json_encode($Array);
 ?>
