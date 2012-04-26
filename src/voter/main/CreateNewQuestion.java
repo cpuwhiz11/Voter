@@ -184,7 +184,7 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 
 
 	private void saveDataOnline(Question question) {
-		String url = "http://129.63.70.103/setQuestion.php";
+		String url = "http://129.63.70.81/setQuestion.php";
 
 		//Package up for sending
 		Map<String, String> data = new HashMap<String, String>();

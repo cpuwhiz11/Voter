@@ -42,7 +42,7 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 			// pull id from field
 			String id = questionNumField.getText().toString(); 
 			
-			String url = "http://129.63.70.103/getQuestion.php";
+			String url = "http://129.63.70.81/getQuestion.php";
 
 			//Package up for sending
 			Map<String, String> data = new HashMap<String, String>();

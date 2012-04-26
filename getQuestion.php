@@ -10,7 +10,7 @@ mysql_connect("localhost","root","root") or die("Unable to connect");
 mysql_select_db("questiondb");
 
 //Retrieve question based on id    
-$question = mysql_query("SELECT * FROM question WHERE id=1");
+$question = mysql_query("SELECT * FROM question WHERE id='$id'");
 
 //Check if we got a result
 if(mysql_numrows($question) == null){

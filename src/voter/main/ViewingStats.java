@@ -40,12 +40,40 @@ public class ViewingStats extends Activity {
 		String title = extras.getString("Title");
 		String question = extras.getString("Question");
 		
-		Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
-		ts.show();
+		//Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
+		//ts.show();
 		
 		//This might be the worse thing I have ever done FIXME
-		List<String> possibleResponse = Arrays.asList(extras.getString("PossibleResponse"));
-
+		List<String> possibleResponse = Arrays.asList(extras.getString("PossibleResponse").split(","));
+		
+		//Clean up the list a bit
+		//Get rid of "[0 : " at start of list
+		//for(String response : possibleResponse){
+		//}
+		
+		for(int i = 0; i < possibleResponse.size(); i++){
+			String noClean;
+			
+			if(i == 0){
+			    noClean = possibleResponse.get(0);
+				noClean = noClean.substring(4);
+				possibleResponse.set(0, noClean);
+				continue;
+			}
+			
+			if(i == possibleResponse.size() - 1){
+			    noClean = possibleResponse.get(possibleResponse.size() - 1);
+				noClean = noClean.substring(4, noClean.length() - 1);
+				possibleResponse.set(possibleResponse.size() - 1, noClean);
+				continue;
+			}
+			
+			noClean = possibleResponse.get(i);
+			noClean = noClean.substring(3);
+			possibleResponse.set(i, noClean);
+			
+		}
+		
 		String id = extras.getString("ID");
 		
 		//Fill the fields up 
@@ -64,16 +92,14 @@ public class ViewingStats extends Activity {
 		questionIdField.setFocusable(false); 	
 		
 		ansList = (ListView) findViewById(R.id.listResponses); 
-		/*
+		
 		//Setup List stuff
 		adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1,
 				possibleResponse);
 		ansList.setAdapter(adapter); 
-		*/ 
-		
-		
-		
+		 
+			
 	}
 	
 }
