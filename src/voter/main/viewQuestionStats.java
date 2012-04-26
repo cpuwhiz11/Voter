@@ -17,6 +17,8 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 
 	private static final String TAG = "viewQuestionStats";
 
+	//Buttons
+	private Button helpBtn; 
 	private Button retrieveQuestionBtn; 
 	
 	private EditText questionNumField; 
@@ -25,9 +27,12 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.viewquestionstats);
 
-		retrieveQuestionBtn = (Button) findViewById(R.id.retrieveQuestionBtn);
+	    retrieveQuestionBtn = (Button) findViewById(R.id.retrieveQuestionBtn);
 		retrieveQuestionBtn.setOnClickListener(this); 
 		
+		//helpBtn = (Button) findViewById(R.id.helpBtn);
+		//helpBtn.setOnClickListener(this);
+			
 		questionNumField = (EditText) findViewById(R.id.questionNumField);
 		questionNumField.setOnClickListener(this); 
 	}
@@ -51,8 +56,16 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 			//Send data
 			JsonResult parser = new JsonConnection(url).post(data);
 
+			String error = null;
+			
 			//Check result
-			String error = parser.valueForKey("ERROR");
+			try {
+				error = parser.valueForKey("ERROR");
+			} catch (NullPointerException e){
+				Toast ts = Toast.makeText(this, "Could not connect to server", Toast.LENGTH_SHORT);
+				ts.show();
+				break;
+			}
 			
 			//Check for error
 			if(error.compareTo("NONE") != 0){
@@ -64,6 +77,7 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 				String title = parser.valueForKey("Title");
 				String question = parser.valueForKey("Question");
 				String possibleResponses = parser.valueForKey("PossibleResponse");
+				String response = parser.valueForKey("Responses");
 				
 				//pack up and create new intent displaying question
 	        	Intent ViewingStats = new Intent(this, ViewingStats.class);
@@ -73,7 +87,7 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 	        	questionBundle.putString("Question", question); 
 	        	questionBundle.putString("PossibleResponse", possibleResponses); 
 	        	questionBundle.putString("ID", id); 
-	        	//questionBundle.putString("FAIL", "ITS A FAIL");
+	        	questionBundle.putString("Responses", response);
 	        	
 	        	ViewingStats.putExtras(questionBundle); 
 	        	startActivity(ViewingStats);

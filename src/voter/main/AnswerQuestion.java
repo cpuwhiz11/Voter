@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,6 +18,9 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 	private static final String TAG = "AnswerQuestion";
 	
 	private EditText questionIdField; 
+	
+	private Button helpBtn; 
+	private Button getQuestionBtn; 
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -27,7 +31,11 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 		questionIdField = (EditText) findViewById(R.id.questionIdField);
 		questionIdField.setOnClickListener(this); 
 		
+		//helpBtn = (Button) findViewById(R.id.helpBtn);
+		//helpBtn.setOnClickListener(this);
 		
+		getQuestionBtn = (Button) findViewById(R.id.getQuestionBtn);
+		getQuestionBtn.setOnClickListener(this);
 	}
 	
 	/** Handle clicks */
@@ -45,7 +53,7 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 			// pull id from field
 			String id = questionIdField.getText().toString(); 
 
-			String url = "http://129.63.70.103/setResponse.php";
+			String url = "http://129.63.70.81/getQuestion.php";
 
 			//Package up for sending
 			Map<String, String> data = new HashMap<String, String>();
@@ -54,25 +62,36 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 			//Send data
 			JsonResult parser = new JsonConnection(url).post(data);
 
-			//Check result
-			String result = parser.valueForKey("ID");
+			String error = null;
+			try {
+			    error = parser.valueForKey("ERROR");
+			} catch (NullPointerException e){
+				Toast ts = Toast.makeText(this, "Could not connect to server", Toast.LENGTH_SHORT);
+				ts.show();
+			}
+			
+			//Check for error
+			if(error.compareTo("NONE") != 0){
+				Toast ts = Toast.makeText(this, error, Toast.LENGTH_SHORT);
+				ts.show();
+			} else {
+				//Parse results
+				String title = parser.valueForKey("Title");
+				String question = parser.valueForKey("Question");
+				String possibleResponses = parser.valueForKey("PossibleResponse");
 
+				//pack up and create new intent displaying question
+				Intent AnswerQuestionSend = new Intent(this, AnswerQuestionSend.class);
+				Bundle questionBundle = new Bundle();
 
-			break;
-
-			// Get Send responses 
-		case R.id.send:
-
-			//Send responses back to owners
-
-			//Display msg that we sent questions
-			Toast ts = new Toast(this);
-			ts.setText("Responses(s) Sent!");
-			ts.show();
-
-			//Return to main page
-			Intent VoterActivity = new Intent(this, VoterActivity.class);
-			startActivity(VoterActivity);
+				questionBundle.putString("Title", title); 
+				questionBundle.putString("Question", question); 
+				questionBundle.putString("PossibleResponse", possibleResponses); 
+				questionBundle.putString("ID", id);        	
+				
+				AnswerQuestionSend.putExtras(questionBundle); 
+				startActivity(AnswerQuestionSend);
+			}
 			break;
 
 		default:

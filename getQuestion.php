@@ -43,10 +43,12 @@ if(mysql_numrows($ans) == null){
   //if not
   $answers = "NONE";
 } else {
-  //THIS IS NOT RIGHT!
-  $row = mysql_fetch_array($ans);
-  $answers = $row['Answers'];
+  while ($row = mysql_fetch_array($ans)){
+    $answers[] = $row['answer'];
+  }
 }
+  
+
 
 //Respond with question info
 $Array = array("ERROR" => "NONE", "Title" => $title, "Question" => $questionContent, 

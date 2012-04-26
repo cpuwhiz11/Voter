@@ -56,13 +56,13 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp" />
         
-        <TextView
-            android:id="@+id/ansStats"
-            android:layout_width="fill_parent"
-            android:layout_height="17dp"
-            android:text="Answer Breakdown" />
+        <Button
+            android:id="@+id/ansBtn"
+            android:layout_width="214dp"
+            android:layout_height="wrap_content"
+            android:text="Send Answer(s)" />
 
-        <Button 
+        <Button
             android:id="@+id/helpBtn"
             android:layout_width="214dp"
             android:layout_height="wrap_content"

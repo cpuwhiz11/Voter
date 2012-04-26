@@ -1,20 +1,8 @@
 package voter.main;
 
-import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateNewQuestion extends Activity implements OnClickListener {
@@ -44,7 +31,6 @@ public class CreateNewQuestion extends Activity implements OnClickListener {
 	
 	// field of the id, uneditable, int in that field
 	private EditText questionIdField; 
-	private int randomInt; 
 	
 	//View that contains the list of possible answers
 	private ListView ansList;  

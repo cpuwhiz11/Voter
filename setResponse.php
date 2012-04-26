@@ -16,6 +16,6 @@ mysql_query("INSERT INTO responses (questionid, answer) VALUES ('$questionId', '
 mysql_close();
 
 //Respond with question info
-$Array = array("ERROR" => "Error", "WIN" => "Success");  
+$Array = array("ERROR" => "NONE", "WIN" => "Success");  
 echo json_encode($Array);
 ?>
