@@ -1,5 +1,6 @@
 package voter.main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 
 public class ViewingStats extends Activity implements OnClickListener{
@@ -27,6 +29,8 @@ public class ViewingStats extends Activity implements OnClickListener{
 	private EditText ansField; 
 	private EditText entryField; 
 	
+	private TextView noAns; 
+	
 	// field of the id, uneditable, int in that field
 	private EditText questionIdField; 
 	
@@ -34,7 +38,8 @@ public class ViewingStats extends Activity implements OnClickListener{
 	private ArrayAdapter<String> adapter;
 	
 	//View that contains the list of possible answers
-	private ListView ansList;  
+	private ListView possibleAnsList;  
+	private ListView ansList; 
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) { 
@@ -53,9 +58,24 @@ public class ViewingStats extends Activity implements OnClickListener{
 		//Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
 		//ts.show();
 		
-		//This might be the worse thing I have ever done FIXME
+		//Get selected answers if any
+		List<String> answers = null;
+		String answersBeforeCleaning = extras.getString("Responses");
+		
+		noAns = (TextView)findViewById(R.id.noAns);	
+		if(answersBeforeCleaning.compareTo("NONE") == 0){
+			//No answers
+		} else {
+			//Hide TextView saying no answers
+			noAns.setVisibility(View.GONE);
+			//Clean out "" and split based on commas
+			answersBeforeCleaning = answersBeforeCleaning.replaceAll("\"", ""); 
+			answers = Arrays.asList(answersBeforeCleaning.substring(1, answersBeforeCleaning.length() - 1).split(",")); 
+		}		
+			
+		//Get list of possible answers
 		List<String> possibleResponse = Arrays.asList(extras.getString("PossibleResponse").split(","));
-
+		
 		//Parse the list to remove ugly things
 		for(int i = 0; i < possibleResponse.size(); i++){
 			String noClean;
@@ -80,6 +100,22 @@ public class ViewingStats extends Activity implements OnClickListener{
 			
 		}
 		
+		//Calculate question stats
+		List<String> ansStatList = new ArrayList<String>(); 
+		int responseSize = possibleResponse.size();
+		int answersToCheck = answers.size();
+		int numAnswered = 0; 
+		int i = 0, j = 0;
+		
+		for(i = 0; i < responseSize ; ++i){
+			for(j = 0; j < answersToCheck; ++j){
+				if(i == Integer.parseInt(answers.get(j))) numAnswered++;
+			}
+			ansStatList.add(possibleResponse.get(i) + ", Answered: " + String.valueOf(numAnswered));
+			numAnswered = 0; 
+		}
+		
+		
 		String id = extras.getString("ID");
 		
 		//Fill the fields up 
@@ -97,14 +133,22 @@ public class ViewingStats extends Activity implements OnClickListener{
 		questionIdField.setText(id);
 		questionIdField.setFocusable(false); 	
 		
-		ansList = (ListView) findViewById(R.id.listResponses); 
+		possibleAnsList = (ListView) findViewById(R.id.listResponses); 
 		
-		//Setup List stuff
+		//Setup List possible response stuff
 		adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1,
 				possibleResponse);
-		ansList.setAdapter(adapter); 
+		possibleAnsList.setAdapter(adapter); 
 		 
+		ansList = (ListView) findViewById(R.id.listAnswers); 
+		
+		//Setup List answer stuff if needed
+		adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1,
+				ansStatList);
+		ansList.setAdapter(adapter); 
+		
 	}
 
 	public void onClick(View v) {

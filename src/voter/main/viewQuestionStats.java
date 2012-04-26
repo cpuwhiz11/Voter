@@ -18,7 +18,7 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 	private static final String TAG = "viewQuestionStats";
 
 	//Buttons
-	private Button helpBtn; 
+	private View helpBtn; 
 	private Button retrieveQuestionBtn; 
 	
 	private EditText questionNumField; 
@@ -30,8 +30,8 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 	    retrieveQuestionBtn = (Button) findViewById(R.id.retrieveQuestionBtn);
 		retrieveQuestionBtn.setOnClickListener(this); 
 		
-		//helpBtn = (Button) findViewById(R.id.helpBtn);
-		//helpBtn.setOnClickListener(this);
+		helpBtn = (View) findViewById(R.id.help);
+		helpBtn.setOnClickListener(this);
 			
 		questionNumField = (EditText) findViewById(R.id.questionNumField);
 		questionNumField.setOnClickListener(this); 
@@ -103,7 +103,7 @@ public class viewQuestionStats extends Activity implements OnClickListener{
 			break;
 			
 	        // Get some help
-	        case R.id.helpBtn:
+	        case R.id.help:
 	        	Intent help = new Intent(this, Help.class);
 	        	startActivity(help);
 	        	break;

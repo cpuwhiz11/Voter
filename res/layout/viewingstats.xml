@@ -61,6 +61,17 @@
             android:layout_width="fill_parent"
             android:layout_height="17dp"
             android:text="Answer Breakdown" />
+        
+        <TextView
+            android:id="@+id/noAns"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:text="No one has answered this question" />
+        
+        <ListView
+            android:id="@+id/listAnswers"
+            android:layout_width="fill_parent"
+            android:layout_height="123dp" />
 
         <Button 
             android:id="@+id/helpBtn"
