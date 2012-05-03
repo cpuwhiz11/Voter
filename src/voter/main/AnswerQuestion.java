@@ -31,8 +31,8 @@ public class AnswerQuestion extends Activity implements OnClickListener {
 		questionIdField = (EditText) findViewById(R.id.questionIdField);
 		questionIdField.setOnClickListener(this); 
 		
-		//helpBtn = (Button) findViewById(R.id.helpBtn);
-		//helpBtn.setOnClickListener(this);
+		helpBtn = (Button) findViewById(R.id.helpBtn);
+		helpBtn.setOnClickListener(this);
 		
 		getQuestionBtn = (Button) findViewById(R.id.getQuestionBtn);
 		getQuestionBtn.setOnClickListener(this);

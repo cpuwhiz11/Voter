@@ -1,0 +1,20 @@
+This application is designed to help friends answer questions in an efficient manner./n/n  
+
+Using this Application/n/n
+
+Create A New Question:/n
+This tab allows the creation of a new question. A user must enter a title, question, and then enter possible responses for the question. A user first enters a possible response in the field and then clicks the “Add a possible Answer” button. This will take the the possible response and add it to the list right below that field. Every question requires these three parts: title, question, and at least one possible response. Upon finishing the question a user selects the “Save Question” button in order to post there question. If the question was posted correctly the id of the question will flash on the screen and the “Question Id” field will be filled with this number. Save this number it will be the only way you can retrieve a question./n/n
+
+View Question Stats:/n
+Want to see how many people have answered your question and want they choose? Click this tab. On the first screen you must enter the question id of the question you wish to view in the “Question Id” field. Then click “Retrieve a Question”. Provided you gave the correct id number it will take you to a screen detailing the question and the number of responses and the breakdown of those response./n/n
+
+Answer A Question:/n
+Much like the View Question Stats tab you must first enter the id of the question you wish to answer in the “Question Id” field. Then click “Retrieve a Question”. Provided you gave the correct id number you will be taken to a screen detailing information about the question. Under “Possible Responses” you will be able to select one or more responses to this question by clicking which one you want. You response is indicated when the check mark turns green. To deselect a response click it again and the check mark will turn gray. When you are satisfied with your response click the “Send Answer(s)” button. Your answers will be posted./n/n
+
+Help:/n
+This is where you are now./n/n/n
+
+
+Copyright Paul Geromini 2012  
+
+

@@ -26,8 +26,8 @@ public class ViewingStats extends Activity implements OnClickListener{
 	
 	//Fields to enter information about this question
 	private EditText titleField; 
-	private EditText ansField; 
 	private EditText entryField; 
+	private EditText ansField; 
 	
 	private TextView noAns; 
 	
@@ -46,8 +46,8 @@ public class ViewingStats extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.viewingstats);
 		
-		//helpBtn = (Button) findViewById(R.id.helpBtn);
-		//helpBtn.setOnClickListener(this);
+		helpBtn = (Button) findViewById(R.id.helpBtn);
+		helpBtn.setOnClickListener(this);
 		
 		//Get the bundle
 		Bundle extras = getIntent().getExtras(); 

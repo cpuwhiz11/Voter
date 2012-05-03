@@ -30,7 +30,7 @@
             android:text="Retrieve a Question" />
 
         <Button
-            android:id="@+id/help"
+            android:id="@+id/helpBtn"
             android:layout_width="214dp"
             android:layout_height="wrap_content"
             android:text="Help" />

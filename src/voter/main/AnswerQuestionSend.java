@@ -46,8 +46,8 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 		setContentView(R.layout.answerquestionsend);
 
 		//Setup buttons
-		//helpBtn = (Button) findViewById(R.id.helpBtn);
-		//helpBtn.setOnClickListener(this);
+		helpBtn = (Button) findViewById(R.id.helpBtn);
+		helpBtn.setOnClickListener(this);
 		
 		ansBtn = (Button) findViewById(R.id.ansBtn);
 		ansBtn.setOnClickListener(this);
