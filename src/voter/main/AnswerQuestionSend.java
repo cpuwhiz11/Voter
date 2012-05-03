@@ -12,11 +12,11 @@ import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AnswerQuestionSend extends Activity implements OnClickListener {
@@ -24,12 +24,12 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 	private static final String TAG = "AnswerQuestionSend";
 	
 	//Fields to enter information about this question
-	private EditText titleField; 
+	private TextView titleField; 
 	private EditText ansField; 
-	private EditText entryField; 
+	private TextView entryField; 
 	
 	// field of the id, uneditable, int in that field
-	private EditText questionIdField; 
+	private TextView questionIdField; 
 	
 	//Adapter to Handle data
 	private ArrayAdapter<String> adapter;
@@ -91,10 +91,10 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 		String id = extras.getString("ID");
 
 		//Fill the fields up 
-		titleField = (EditText) findViewById(R.id.titleField);
-		entryField = (EditText) findViewById(R.id.entryField);
+		titleField = (TextView) findViewById(R.id.titleField);
+		entryField = (TextView) findViewById(R.id.entryField);
 		ansField = (EditText) findViewById(R.id.possibleAnsField);
-		questionIdField = (EditText) findViewById(R.id.questionIdField);
+		questionIdField = (TextView) findViewById(R.id.questionIdField);
 
 		titleField.setText(title);
 		titleField.setFocusable(false); 	

@@ -17,10 +17,15 @@
             android:layout_height="17dp"
             android:text="Title" />
 
-        <EditText
+        <TextView
             android:id="@+id/titleField"
             android:layout_width="fill_parent"
             android:layout_height="50dp" />
+        
+        <View
+        	android:layout_width="fill_parent"
+        	android:layout_height="2dip"
+        	android:background="#D80000" />
 
         <TextView
             android:id="@+id/Question"
@@ -28,22 +33,29 @@
             android:layout_height="17dp"
             android:text="Question" />
 
-        <EditText
+        <TextView
             android:id="@+id/entryField"
             android:layout_width="fill_parent"
-            android:layout_height="100dp" />
+            android:layout_height="wrap_content" />
 
-
+        <View
+        	android:layout_width="fill_parent"
+        	android:layout_height="2dip"
+        	android:background="#D80000" />
+        
+        <!--Not being used anymore
         <TextView
             android:id="@+id/possibleResponses"
             android:layout_width="fill_parent"
             android:layout_height="17dp"
             android:text="Possible Responses" />
+            
 
         <ListView
             android:id="@+id/listResponses"
             android:layout_width="fill_parent"
             android:layout_height="123dp" />
+        -->
 
         <TextView
             android:id="@+id/QuestionId"
@@ -51,10 +63,15 @@
             android:layout_height="17dp"
             android:text="Question Id" />
 
-        <EditText
+        <TextView
             android:id="@+id/questionIdField"
             android:layout_width="fill_parent"
             android:layout_height="50dp" />
+        
+        <View
+        	android:layout_width="fill_parent"
+        	android:layout_height="2dip"
+        	android:background="#D80000" />
         
         <TextView
             android:id="@+id/ansStats"
@@ -67,6 +84,12 @@
             android:layout_width="fill_parent"
             android:layout_height="17dp"
             android:text="No one has answered this question yet" />
+        
+        <TextView
+            android:id="@+id/totalAns"
+            android:layout_width="fill_parent"
+            android:layout_height="17dp"
+            android:text="Total Number of Responses: " />
         
         <ListView
             android:id="@+id/listAnswers"

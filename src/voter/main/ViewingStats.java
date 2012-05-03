@@ -25,20 +25,21 @@ public class ViewingStats extends Activity implements OnClickListener{
 	private Button helpBtn; 
 	
 	//Fields to enter information about this question
-	private EditText titleField; 
-	private EditText entryField; 
-	private EditText ansField; 
+	private TextView titleField; 
+	private TextView entryField; 
+	private TextView ansField; 
+	private TextView totalAns; 
 	
 	private TextView noAns; 
 	
 	// field of the id, uneditable, int in that field
-	private EditText questionIdField; 
+	private TextView questionIdField; 
 	
 	//Adapter to Handle data
 	private ArrayAdapter<String> adapter;
 	
 	//View that contains the list of possible answers
-	private ListView possibleAnsList;  
+	//private ListView possibleAnsList;  
 	private ListView ansList; 
 
 	@Override
@@ -119,10 +120,10 @@ public class ViewingStats extends Activity implements OnClickListener{
 		String id = extras.getString("ID");
 		
 		//Fill the fields up 
-		titleField = (EditText) findViewById(R.id.titleField);
-		entryField = (EditText) findViewById(R.id.entryField);
-		ansField = (EditText) findViewById(R.id.possibleAnsField);
-		questionIdField = (EditText) findViewById(R.id.questionIdField);
+		titleField = (TextView) findViewById(R.id.titleField);
+		entryField = (TextView) findViewById(R.id.entryField);
+		ansField = (TextView) findViewById(R.id.possibleAnsField);
+		questionIdField = (TextView) findViewById(R.id.questionIdField);
 		
 		titleField.setText(title);
 		titleField.setFocusable(false); 	
@@ -133,14 +134,19 @@ public class ViewingStats extends Activity implements OnClickListener{
 		questionIdField.setText(id);
 		questionIdField.setFocusable(false); 	
 		
-		possibleAnsList = (ListView) findViewById(R.id.listResponses); 
+		totalAns = (TextView) findViewById(R.id.totalAns);
+		totalAns.setText(totalAns.getText() + " " + String.valueOf(answersToCheck)); 
+		
+		//possibleAnsList = (ListView) findViewById(R.id.listResponses); 
 		
 		//Setup List possible response stuff
+		/*
 		adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1,
 				possibleResponse);
 		possibleAnsList.setAdapter(adapter); 
-		 
+		 */
+		
 		ansList = (ListView) findViewById(R.id.listAnswers); 
 		
 		//Setup List answer stuff if needed

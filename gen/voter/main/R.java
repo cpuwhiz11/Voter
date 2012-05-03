@@ -25,11 +25,11 @@ public final class R {
         public static final int ansStats=0x7f060018;
         public static final int entryField=0x7f060000;
         public static final int getQuestionBtn=0x7f060005;
-        public static final int help=0x7f06001d;
+        public static final int help=0x7f06001e;
         public static final int helpBtn=0x7f060006;
         public static final int helpText=0x7f060012;
         public static final int helpinfo=0x7f060011;
-        public static final int listAnswers=0x7f06001a;
+        public static final int listAnswers=0x7f06001b;
         public static final int listResponses=0x7f06000b;
         public static final int newQuestionBtn=0x7f060013;
         public static final int noAns=0x7f060019;
@@ -37,12 +37,13 @@ public final class R {
         public static final int possibleAnsField=0x7f06000e;
         public static final int possibleResponses=0x7f06000a;
         public static final int questionIdField=0x7f060004;
-        public static final int questionNumField=0x7f06001b;
-        public static final int retrieveQuestionBtn=0x7f06001c;
+        public static final int questionNumField=0x7f06001c;
+        public static final int retrieveQuestionBtn=0x7f06001d;
         public static final int saveBtn=0x7f060010;
         public static final int scroll=0x7f060002;
         public static final int selectSenders=0x7f060017;
         public static final int titleField=0x7f060008;
+        public static final int totalAns=0x7f06001a;
         public static final int viewQuestionStatsBtn=0x7f060014;
     }
     public static final class layout {
