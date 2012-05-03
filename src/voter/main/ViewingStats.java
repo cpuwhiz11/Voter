@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -96,7 +95,7 @@ public class ViewingStats extends Activity implements OnClickListener{
 			}
 			
 			noClean = possibleResponse.get(i);
-			noClean = noClean.substring(3);
+			noClean = noClean.substring(4);
 			possibleResponse.set(i, noClean);
 			
 		}
@@ -104,18 +103,29 @@ public class ViewingStats extends Activity implements OnClickListener{
 		//Calculate question stats
 		List<String> ansStatList = new ArrayList<String>(); 
 		int responseSize = possibleResponse.size();
-		int answersToCheck = answers.size();
-		int numAnswered = 0; 
-		int i = 0, j = 0;
 		
-		for(i = 0; i < responseSize ; ++i){
-			for(j = 0; j < answersToCheck; ++j){
-				if(i == Integer.parseInt(answers.get(j))) numAnswered++;
+		//Get the totalAns field since we will be working with it now
+		totalAns = (TextView) findViewById(R.id.totalAns);
+		
+		//Do we have to calculate any answers, if not null then yes
+		if (answers != null){
+			int answersToCheck = answers.size();
+			int numAnswered = 0; 
+			int i = 0, j = 0;
+
+			for(i = 0; i < responseSize ; ++i){
+				for(j = 0; j < answersToCheck; ++j){
+					if(i == Integer.parseInt(answers.get(j))) numAnswered++;
+				}
+				ansStatList.add(possibleResponse.get(i) + ", Answered: " + String.valueOf(numAnswered));
+				numAnswered = 0; 
 			}
-			ansStatList.add(possibleResponse.get(i) + ", Answered: " + String.valueOf(numAnswered));
-			numAnswered = 0; 
+			
+			// Setup fields
+			totalAns.setText(totalAns.getText() + " " + String.valueOf(answersToCheck)); 			
+		} else {
+			totalAns.setVisibility(View.GONE);
 		}
-		
 		
 		String id = extras.getString("ID");
 		
@@ -133,9 +143,6 @@ public class ViewingStats extends Activity implements OnClickListener{
 		
 		questionIdField.setText(id);
 		questionIdField.setFocusable(false); 	
-		
-		totalAns = (TextView) findViewById(R.id.totalAns);
-		totalAns.setText(totalAns.getText() + " " + String.valueOf(answersToCheck)); 
 		
 		//possibleAnsList = (ListView) findViewById(R.id.listResponses); 
 		

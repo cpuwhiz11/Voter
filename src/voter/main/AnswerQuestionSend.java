@@ -39,7 +39,9 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 	
 	//Buttons
 	private Button helpBtn; 
-	private Button ansBtn; 
+	private Button ansBtn;
+
+	private List<String> possibleResponse; 
 	
 	public void onCreate(Bundle savedInstanceState) { 
 		super.onCreate(savedInstanceState);
@@ -61,8 +63,7 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 		//Toast ts = Toast.makeText(this, title, Toast.LENGTH_SHORT);
 		//ts.show();
 
-		//This might be the worse thing I have ever done FIXME
-		List<String> possibleResponse = Arrays.asList(extras.getString("PossibleResponse").split(","));
+		possibleResponse = Arrays.asList(extras.getString("PossibleResponse").split(","));
 
 		//Parse the list to remove ugly things
 		for(int i = 0; i < possibleResponse.size(); i++){
@@ -83,7 +84,7 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 			}
 
 			noClean = possibleResponse.get(i);
-			noClean = noClean.substring(3);
+			noClean = noClean.substring(4);
 			possibleResponse.set(i, noClean);
 
 		}
@@ -122,11 +123,11 @@ public class AnswerQuestionSend extends Activity implements OnClickListener {
 		case R.id.ansBtn:
 			//Get selected answers
 			SparseBooleanArray answers = ansList.getCheckedItemPositions();
-			if(answers == null){
+			if(answers.size() == 0){
 				Toast ts = Toast.makeText(this, "You did not select any answers", Toast.LENGTH_SHORT);
 				ts.show();
 			} else {
-				for(int i = 0; i < answers.size(); i++){
+				for(int i = 0; i < possibleResponse.size(); i++){
 					
 					if(answers.get(i) == false){
 						continue;
